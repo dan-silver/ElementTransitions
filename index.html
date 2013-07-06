@@ -12,14 +12,13 @@
   <script src="js/demo.js"></script>
 </head>
 <body ng-controller="demo">
-  <div class="pt-perspective" ng-repeat="t in transitions">
+  <div class="pt-perspective pt-rotate" pt-out='{{t.enter}}' pt-in='{{t.leave}}' ng-repeat="t in transitions">
     <div class="pt-page"><h1>Element Transitions</h1></div>
     <div class="pt-page"><h1>Element Transitions</h1></div>
     <div class="pt-page"><h1>Element Transitions</h1></div>
     <div class="pt-page"><h1>Element Transitions</h1></div>
     <div class="pt-page"><h1>Element Transitions</h1></div>
     <div class="pt-page"><h1>Element Transitions</h1></div>
-    <button class="pt-rotate" pt-out='{{t.enter}}' pt-in='{{t.leave}}'>Change</button>
   </div>
 
 </body>

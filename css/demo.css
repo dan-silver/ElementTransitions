@@ -2,39 +2,41 @@ button.pt-rotate {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  z-index: 999;	
+  z-index: 999;
 }
 .pt-perspective {
-	width: 300px;
-	height: 300px;
+  width: 300px;
+  height: 300px;
+  float: left;
+  margin: 25px;
 }
 /* Text Styles, Colors, Backgrounds */
 
 .pt-perspective .pt-page:nth-child(1) {
-	background: #0ac2d2;
+  background: #0ac2d2;
 }
 
 .pt-perspective .pt-page:nth-child(2) {
-	background: #7bb7fa;
+  background: #7bb7fa;
 }
 
 .pt-perspective .pt-page:nth-child(3) {
-	background: #60d7a9;
+  background: #60d7a9;
 }
 
 .pt-perspective .pt-page:nth-child(4) {
-	background: #fdc162;
+  background: #fdc162;
 }
 
 .pt-perspective .pt-page:nth-child(5) {
-	background: #fd6a62;
+  background: #fd6a62;
 }
 
 .pt-perspective .pt-page:nth-child(6) {
-	background: #f68dbb;
+  background: #f68dbb;
 }
 body {
-	font-family: 'Lato', Calibri, Arial, sans-serif;
-	color: #fff;
-	background: #333;
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  color: #fff;
+  background: #333;
 }
