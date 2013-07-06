@@ -1,5 +1,6 @@
 body {
   font-family: 'Lato', Calibri, Arial, sans-serif;
+  padding-top: 50px;
 }
 
 button.pt-rotate {
@@ -12,7 +13,7 @@ button.pt-rotate {
 .pt-perspective {
   height: 170px;
   float: left;
-  margin: 25px;
+  margin: 15px;
 }
 
 .pt-page {

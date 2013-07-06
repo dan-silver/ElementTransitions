@@ -14,7 +14,7 @@
 </head>
 <body ng-controller="demo">
   <div class="container">
-    <div class="navbar navbar-inverse">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -22,21 +22,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Element Transitions</a>
+          <a class="brand" href="#" data-target="body">ElementTransitions.js</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#" data-target=".code-demos" >Examples</a></li>
+              <li><a href="#" data-target=".section-transitions">Transitions</a></li>
+              <li><a href="#" data-target=".install">Installation</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
     <div class="code-demos">
+      <h2>Examples</h2>
       <div class="demo">
         <div class="row-fluid">
-          <h2>Example 1 - Rotate by clicking on the element</h2>
+          <h4>Rotate by clicking on the element</h4>
         </div>
         <div class="pt-perspective pt-rotate span4" pt-in="rotateSlideIn" pt-out="rotateSlideOut">
           <div class="pt-page">
@@ -52,7 +53,7 @@
     </div>
     <div class="demo">
       <div class="row-fluid">
-        <h2>Example 2 - Rotate by clicking on a button</h2>
+        <h4>Rotate by clicking on a button</h4>
       </div>
       <div class="pt-perspective span4">
         <button class="pt-rotate btn" pt-in="rotateSlideIn" pt-out="rotateSlideOut">Next</button>
@@ -69,7 +70,7 @@
   </div>
   <div class="demo">
     <div class="row-fluid">
-      <h2>Example 3 - Different Transitions</h2>
+      <h4>Different Transitions</h4>
     </div>
     <div class="pt-perspective span4">
       <div class="pt-page">
@@ -87,7 +88,7 @@
 </div>
 </div>
 <div class="row">
-  <h2>All transitions</h2>
+  <h2 class="section-transitions">All transitions</h2>
   <div class="pt-perspective pt-rotate span2" pt-out='{{t.enter}}' pt-in='{{t.leave}}' ng-repeat="t in transitions">
    <div class="pt-page" ng-repeat="i in getNumber(number)">
     <h5>In: {{t.enter}}</h5>

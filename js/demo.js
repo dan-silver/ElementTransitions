@@ -1,5 +1,5 @@
 function demo($scope) {
-    $scope.number = 5;
+    $scope.number = 5
     $scope.getNumber = function(num) {
         return new Array(num)
     }
@@ -75,3 +75,10 @@ function demo($scope) {
     {enter:"rotateSlideOut", leave:"rotateSlideIn"}
   ].reverse()
 }
+$(function() {
+  $('.nav a, .brand').click(function(){
+    $('html, body').animate({
+      scrollTop: $($(this).attr('data-target')).offset().top-50
+    }, 500)
+  })
+})
