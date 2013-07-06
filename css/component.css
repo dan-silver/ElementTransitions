@@ -44,8 +44,6 @@ html, body { height: 100%; }
 	z-index: 999;
 }
 
-
-
 /* Triggers (menu and button) */
 .pt-rotate {
   cursor: pointer;

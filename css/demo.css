@@ -30,3 +30,8 @@ button.pt-rotate {
 .pt-page-6 {
 	background: #f68dbb;
 }
+body {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	color: #fff;
+	background: #333;
+}

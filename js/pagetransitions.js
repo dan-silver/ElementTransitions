@@ -12,17 +12,17 @@ var PageTransitions = (function() {
 		// animation end event name
 		animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ],
 		// support css animations
-		support = Modernizr.cssanimations;
+		support = Modernizr.cssanimations
 
 		function init() {
 			$(".pt-page").each( function() {
-				$(this).data( 'originalClassList', $(this).attr( 'class' ) );
-			});
+				$(this).data( 'originalClassList', $(this).attr( 'class' ) )
+			})
 			$(".pt-perspective").each( function() {
 				$(this).data('current', 0)
 				$(this).data('isAnimating', false)
-				$(this).children(".pt-page").eq(startElement).addClass( 'pt-page-current' );
-			});
+				$(this).children(".pt-page").eq(startElement).addClass( 'pt-page-current' )
+			})
 
 			$(".pt-rotate").click(function() {
 				nextPage($(this).closest('.pt-perspective'), $(this).attr('pt-out'), $(this).attr('pt-in'))
@@ -39,18 +39,18 @@ var PageTransitions = (function() {
 
 
 			if( block.data('isAnimating')) {
-				return false;
+				return false
 			}
 
-			block.data('isAnimating', true);
+			block.data('isAnimating', true)
 
-			var $currPage = $pages.eq(current);
+			var $currPage = $pages.eq(current)
 
 			if(current < pagesCount - 1 ) {
-				++current;
+				++current
 			}
 			else {
-				current = 0;
+				current = 0
 			}
 			block.data('current', current)
 
@@ -58,49 +58,49 @@ var PageTransitions = (function() {
 
 
 			$currPage.addClass( outClass ).on( animEndEventName, function() {
-				$currPage.off( animEndEventName );
-				endCurrPage = true;
+				$currPage.off( animEndEventName )
+				endCurrPage = true
 				if( endNextPage ) {
-					onEndAnimation( $currPage, $nextPage, block );
+					onEndAnimation( $currPage, $nextPage, block )
 				}
-			} );
+			} )
 
 			$nextPage.addClass( inClass ).on( animEndEventName, function() {
-				$nextPage.off( animEndEventName );
-				endNextPage = true;
+				$nextPage.off( animEndEventName )
+				endNextPage = true
 				if( endCurrPage ) {
-					onEndAnimation( $currPage, $nextPage, block );
+					onEndAnimation( $currPage, $nextPage, block )
 				}
-			} );
+			} )
 
 			if( !support ) {
-				onEndAnimation( $currPage, $nextPage, block );
+				onEndAnimation( $currPage, $nextPage, block )
 			}
 
 		}
 
 		function onEndAnimation( $outpage, $inpage, block ) {
-			endCurrPage = false;
-			endNextPage = false;
-			resetPage( $outpage, $inpage );
-			block.data('isAnimating' , false);
+			endCurrPage = false
+			endNextPage = false
+			resetPage( $outpage, $inpage )
+			block.data('isAnimating' , false)
 		}
 
 		function resetPage( $outpage, $inpage ) {
-			$outpage.attr( 'class', $outpage.data( 'originalClassList' ) );
-			$inpage.attr( 'class', $inpage.data( 'originalClassList' ) + ' pt-page-current' );
+			$outpage.attr( 'class', $outpage.data( 'originalClassList' ) )
+			$inpage.attr( 'class', $inpage.data( 'originalClassList' ) + ' pt-page-current' )
 		}
 
-		init();
+		init()
 
 		function formatClass(str) {
 			classes = str.split(" ")
 			output=""
-			for(var n=0; n<classes.length; n++){
+			for(var n=0;n<classes.length;n++){
 				output += " pt-page-" + classes[n]
 			}
 			return output
 		}
-		return { init : init, nextPage: nextPage };
+		return { init : init, nextPage: nextPage }
 
-	})();
+	})()
