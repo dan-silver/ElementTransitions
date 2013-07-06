@@ -25,6 +25,9 @@ var PageTransitions = (function() {
 				$(this).children(".pt-page").eq(startElement).addClass( 'pt-page-current' );
 			});
 
+			$(".pt-rotate").click(function() {
+				nextPage($(this).closest('.pt-perspective'), $(this).attr('pt-out'), $(this).attr('pt-in'))
+			})
 		}
 
 		function nextPage( block, outClass, inClass ) {
