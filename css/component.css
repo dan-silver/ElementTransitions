@@ -7,8 +7,6 @@ html, body { height: 100%; }
 	perspective: 1200px;
 	display: block;
 	overflow: hidden;
-	width: 300px;
-	height: 300px;
 }
 
 .pt-page {

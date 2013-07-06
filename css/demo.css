@@ -4,7 +4,10 @@ button.pt-rotate {
   right: 10px;
   z-index: 999;	
 }
-
+.pt-perspective {
+	width: 300px;
+	height: 300px;
+}
 /* Text Styles, Colors, Backgrounds */
 
 .pt-page-1 {
