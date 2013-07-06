@@ -91,7 +91,7 @@ var PageTransitions = (function() {
 			$inpage.attr( 'class', $inpage.data( 'originalClassList' ) + ' pt-page-current' )
 		}
 
-		init()
+		
 
 		function formatClass(str) {
 			classes = str.split(" ")
@@ -104,3 +104,7 @@ var PageTransitions = (function() {
 		return { init : init, nextPage: nextPage }
 
 	})()
+
+$(function() {
+	PageTransitions.init()
+})
