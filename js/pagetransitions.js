@@ -1,8 +1,6 @@
 var PageTransitions = (function() {
 
-	var startElement = 0,
-	endCurrPage = false,
-	endNextPage = false,
+	var startElement = 0
 	animEndEventNames = {
 		'WebkitAnimation' : 'webkitAnimationEnd',
 		'OAnimation' : 'oAnimationEnd',
@@ -35,7 +33,9 @@ var PageTransitions = (function() {
 				outClass = formatClass(outClass),
 				current = block.data('current'),
 				$pages = block.children( 'div.pt-page' ),
-				pagesCount = $pages.length
+				pagesCount = $pages.length,
+				endCurrPage = false,
+				endNextPage = false
 
 
 			if( block.data('isAnimating')) {
@@ -80,8 +80,6 @@ var PageTransitions = (function() {
 		}
 
 		function onEndAnimation( $outpage, $inpage, block ) {
-			endCurrPage = false
-			endNextPage = false
 			resetPage( $outpage, $inpage )
 			block.data('isAnimating' , false)
 		}
