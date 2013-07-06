@@ -1,6 +1,10 @@
 function demo($scope) {
     $scope.enter = "moveToLeft"
     $scope.leave = "moveFromRight"
+    $scope.number = 6;
+    $scope.getNumber = function(num) {
+        return new Array(num)
+    }
   $scope.transitions = [
     {enter:"moveToLeft", leave:"moveFromRight"},
     {enter:"moveToRight", leave:"moveFromLeft"},

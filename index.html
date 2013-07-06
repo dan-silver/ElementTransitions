@@ -1,25 +1,51 @@
 <!DOCTYPE html>
 <html ng-app lang="en" class="no-js">
 <head>
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/component.css" />
   <link rel="stylesheet" type="text/css" href="css/animations.css" />
   <link rel="stylesheet" type="text/css" href="css/demo.css" />
   <script src="js/modernizr.custom.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 
   <script src="js/pagetransitions.js"></script>
   <script src="js/demo.js"></script>
 </head>
 <body ng-controller="demo">
-  <div class="pt-perspective pt-rotate" pt-out='{{t.enter}}' pt-in='{{t.leave}}' ng-repeat="t in transitions">
-    <div class="pt-page"><h1>Element Transitions</h1></div>
-    <div class="pt-page"><h1>Element Transitions</h1></div>
-    <div class="pt-page"><h1>Element Transitions</h1></div>
-    <div class="pt-page"><h1>Element Transitions</h1></div>
-    <div class="pt-page"><h1>Element Transitions</h1></div>
-    <div class="pt-page"><h1>Element Transitions</h1></div>
+  <div class="container">
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Element Transitions</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-unit">
+      <h1>Element Transitions</h1>
+    </div>
+    <div class="row">
+      <div class="pt-perspective pt-rotate span2" pt-out='{{t.enter}}' pt-in='{{t.leave}}' ng-repeat="t in transitions">
+       <div class="pt-page" ng-repeat="i in getNumber(number)">
+        <h5>In: {{t.enter}}</h5>
+        <h5>Out: {{t.leave}}</h5>
+      </div>
+    </div>
   </div>
+</div>
 
 </body>
 </html>
