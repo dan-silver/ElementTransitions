@@ -12,27 +12,27 @@ button.pt-rotate {
 }
 /* Text Styles, Colors, Backgrounds */
 
-.pt-perspective .pt-page:nth-child(1) {
+.pt-page:nth-child(1) {
   background: #0ac2d2;
 }
 
-.pt-perspective .pt-page:nth-child(2) {
+.pt-page:nth-child(2) {
   background: #7bb7fa;
 }
 
-.pt-perspective .pt-page:nth-child(3) {
+.pt-page:nth-child(3) {
   background: #60d7a9;
 }
 
-.pt-perspective .pt-page:nth-child(4) {
+.pt-page:nth-child(4) {
   background: #fdc162;
 }
 
-.pt-perspective .pt-page:nth-child(5) {
+.pt-page:nth-child(5) {
   background: #fd6a62;
 }
 
-.pt-perspective .pt-page:nth-child(6) {
+.pt-page:nth-child(6) {
   background: #f68dbb;
 }
 body {
