@@ -1,9 +1,32 @@
-.pt-rotate {
-  cursor: pointer;
-}
 button.pt-rotate {
   position: absolute;
   bottom: 10px;
   right: 10px;
   z-index: 999;	
+}
+
+/* Text Styles, Colors, Backgrounds */
+
+.pt-page-1 {
+	background: #0ac2d2;
+}
+
+.pt-page-2 {
+	background: #7bb7fa;
+}
+
+.pt-page-3 {
+	background: #60d7a9;
+}
+
+.pt-page-4 {
+	background: #fdc162;
+}
+
+.pt-page-5 {
+	background: #fd6a62;
+}
+
+.pt-page-6 {
+	background: #f68dbb;
 }
