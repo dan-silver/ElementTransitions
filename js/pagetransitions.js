@@ -27,7 +27,7 @@ var PageTransitions = (function() {
 
 		}
 
-		function nextPage( animation, block, outClass, inClass ) {
+		function nextPage( block, outClass, inClass ) {
 			block = $(block)
 			var inClass = formatClass(inClass),
 				outClass = formatClass(outClass),
