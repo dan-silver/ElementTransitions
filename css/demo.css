@@ -10,27 +10,27 @@ button.pt-rotate {
 }
 /* Text Styles, Colors, Backgrounds */
 
-.pt-page-1 {
+.pt-perspective .pt-page:nth-child(1) {
 	background: #0ac2d2;
 }
 
-.pt-page-2 {
+.pt-perspective .pt-page:nth-child(2) {
 	background: #7bb7fa;
 }
 
-.pt-page-3 {
+.pt-perspective .pt-page:nth-child(3) {
 	background: #60d7a9;
 }
 
-.pt-page-4 {
+.pt-perspective .pt-page:nth-child(4) {
 	background: #fdc162;
 }
 
-.pt-page-5 {
+.pt-perspective .pt-page:nth-child(5) {
 	background: #fd6a62;
 }
 
-.pt-page-6 {
+.pt-perspective .pt-page:nth-child(6) {
 	background: #f68dbb;
 }
 body {
