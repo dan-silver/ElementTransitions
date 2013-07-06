@@ -1,34 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html ng-app lang="en" class="no-js">
 <head>
   <link rel="stylesheet" type="text/css" href="css/component.css" />
   <link rel="stylesheet" type="text/css" href="css/animations.css" />
   <link rel="stylesheet" type="text/css" href="css/demo.css" />
   <script src="js/modernizr.custom.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+
   <script src="js/pagetransitions.js"></script>
+  <script src="js/demo.js"></script>
 </head>
-<body>
-  <div class="pt-perspective">
+<body ng-controller="demo">
+  <div class="pt-perspective" ng-repeat="t in transitions">
     <div class="pt-page"><h1>Element Transitions</h1></div>
     <div class="pt-page"><h1>Element Transitions</h1></div>
     <div class="pt-page"><h1>Element Transitions</h1></div>
     <div class="pt-page"><h1>Element Transitions</h1></div>
     <div class="pt-page"><h1>Element Transitions</h1></div>
     <div class="pt-page"><h1>Element Transitions</h1></div>
-    <button class="pt-rotate" pt-out='rotateCarouselBottomOut ontop' pt-in='rotateCarouselBottomIn'>Change</button>
-  </div>
-  <div class="pt-perspective pt-rotate" pt-out='flipOutTop ontop' pt-in='flipInBottom delay500'>
-    <div class="pt-page"><h1>Element Transitions</h1></div>
-    <div class="pt-page"><h1>Element Transitions</h1></div>
-    <div class="pt-page"><h1>Element Transitions</h1></div>
-    <div class="pt-page"><h1>Element Transitions</h1></div>
-    <div class="pt-page"><h1>Element Transitions</h1></div>
-    <div class="pt-page"><h1>Element Transitions</h1></div>
-  </div>
-  <div class="pt-perspective pt-rotate" pt-out='rotateCarouselBottomOut ontop' pt-in='rotateCarouselBottomIn'>
-    <div class="pt-page"><h1>Element Transitions</h1></div>
-    <div class="pt-page"><h1>Element Transitions</h1></div>
+    <button class="pt-rotate" pt-out='{{t.enter}}' pt-in='{{t.leave}}'>Change</button>
   </div>
 
 </body>
