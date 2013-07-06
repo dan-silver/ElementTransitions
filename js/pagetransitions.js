@@ -1,8 +1,6 @@
 var PageTransitions = (function() {
 
 	var $main = $( '#pt-main' ),
-		$pages = $main.children( 'div.pt-page' ),
-		pagesCount = $pages.length,
 		current = 0,
 		isAnimating = false,
 		endCurrPage = false,
@@ -22,28 +20,34 @@ var PageTransitions = (function() {
 		$(".pt-page").each( function() {
 			$(this).data( 'originalClassList', $(this).attr( 'class' ) );
 		});
-		$pages.eq(current).addClass( 'pt-page-current' );
+		$(".pt-perspective").each( function() {
+			$(this).children(".pt-page").eq(current).addClass( 'pt-page-current' );
+		});
 
 	}
 
-	function nextPage( animation ) {
+	function nextPage( animation, block ) {
+		
+		var $pages = block.children( 'div.pt-page' ),
+			pagesCount = $pages.length
 
+		
 		if( isAnimating ) {
 			return false;
 		}
 
 		isAnimating = true;
 		
-		var $currPage = $pages.eq( current );
+		var $currPage = $pages.eq(current);
 
-		if( current < pagesCount - 1 ) {
+		if(current < pagesCount - 1 ) {
 			++current;
 		}
 		else {
 			current = 0;
 		}
 
-		var $nextPage = $pages.eq( current ).addClass( 'pt-page-current' ),
+		var $nextPage = $pages.eq(current).addClass( 'pt-page-current' ),
 			outClass = '', inClass = '';
 
 		switch( animation ) {
