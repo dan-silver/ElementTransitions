@@ -8,12 +8,12 @@ button.pt-rotate {
   right: 10px;
   z-index: 999;
 }
+
 .pt-perspective {
   height: 170px;
   float: left;
   margin: 25px;
 }
-/* Text Styles, Colors, Backgrounds */
 
 .pt-page {
   padding: 8px;
@@ -36,4 +36,7 @@ button.pt-rotate {
 
 .pt-page:nth-child(5) {
   background: #fd6a62;
+}
+.code-demos .pt-perspective{
+  margin: 0px;
 }
