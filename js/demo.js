@@ -1,10 +1,13 @@
 function demo($scope) {
     $scope.enter = "moveToLeft"
     $scope.leave = "moveFromRight"
-    $scope.number = 6;
+    $scope.number = 5;
     $scope.getNumber = function(num) {
         return new Array(num)
     }
+    setInterval(function() {
+        PageTransitions.animate($(".pt-perspective")[Math.floor((Math.random()*66)+1)])
+    },70)
   $scope.transitions = [
     {enter:"moveToLeft", leave:"moveFromRight"},
     {enter:"moveToRight", leave:"moveFromLeft"},
@@ -72,5 +75,5 @@ function demo($scope) {
     {enter:"rotateCarouselBottomOut ontop", leave:"rotateCarouselBottomIn"},
     {enter:"rotateSidesOut", leave:"rotateSidesIn delay200"},
     {enter:"rotateSlideOut", leave:"rotateSlideIn"}
-  ]
+  ].reverse()
 }

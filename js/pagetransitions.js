@@ -23,10 +23,13 @@ var PageTransitions = (function() {
 			})
 
 			$(".pt-rotate").click(function() {
-				nextPage($(this).closest('.pt-perspective'), $(this).attr('pt-out'), $(this).attr('pt-in'))
+				animate($(this))
 			})
 		}
+		function animate(block) {
+			nextPage($(block).closest('.pt-perspective'), $(block).attr('pt-out'), $(block).attr('pt-in'))
 
+		}
 		function nextPage( block, outClass, inClass ) {
 			block = $(block)
 			var inClass = formatClass(inClass),
@@ -99,7 +102,7 @@ var PageTransitions = (function() {
 			}
 			return output
 		}
-		return { init : init, nextPage: nextPage }
+		return { init : init, nextPage: nextPage, animate: animate }
 
 	})()
 

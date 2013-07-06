@@ -1,3 +1,7 @@
+body {
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+}
+
 button.pt-rotate {
   position: absolute;
   bottom: 10px;
@@ -19,7 +23,7 @@ button.pt-rotate {
 }
 
 .pt-page:nth-child(2) {
-  background: #7bb7fa;
+  background: #f68dbb;
 }
 
 .pt-page:nth-child(3) {
@@ -32,12 +36,4 @@ button.pt-rotate {
 
 .pt-page:nth-child(5) {
   background: #fd6a62;
-}
-
-.pt-page:nth-child(6) {
-  background: #f68dbb;
-}
-body {
-  font-family: 'Lato', Calibri, Arial, sans-serif;
-  background: #333;
 }
