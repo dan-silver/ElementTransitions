@@ -19,13 +19,10 @@ var PageTransitions = (function() {
 		support = Modernizr.cssanimations;
 	
 	function init() {
-
-		$pages.each( function() {
-			var $page = $( this );
-			$page.data( 'originalClassList', $page.attr( 'class' ) );
-		} );
-
-		$pages.eq( current ).addClass( 'pt-page-current' );
+		$(".pt-page").each( function() {
+			$(this).data( 'originalClassList', $(this).attr( 'class' ) );
+		});
+		$pages.eq(current).addClass( 'pt-page-current' );
 
 	}
 
