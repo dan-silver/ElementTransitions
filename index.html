@@ -33,14 +33,10 @@
         </div>
       </div>
     </div>
-
-    <div class="hero-unit">
-      <h1>Element Transitions</h1>
-    </div>
     <div class="code-demos">
       <div class="demo">
         <div class="row-fluid">
-          <h2>Example 1 - Rotate by clicking on the slides</h2>
+          <h2>Example 1 - Rotate by clicking on the element</h2>
         </div>
         <div class="pt-perspective pt-rotate span4" pt-in="rotateSlideIn" pt-out="rotateSlideOut">
           <div class="pt-page">
@@ -71,8 +67,27 @@
       <script src="https://gist.github.com/dan-silver/5941430.js"></script>
     </div>
   </div>
+  <div class="demo">
+    <div class="row-fluid">
+      <h2>Example 3 - Different Transitions</h2>
+    </div>
+    <div class="pt-perspective span4">
+      <div class="pt-page">
+       <h2>Page 1</h2>
+       <button class="pt-rotate btn" pt-in="rotateCarouselRightIn" pt-out="rotateCarouselRightOut">Next</button>
+     </div>
+     <div class="pt-page">
+       <h2>Page 2</h2>
+       <button class="pt-rotate btn" pt-in="rotateCarouselLeftIn" pt-out="rotateCarouselLeftOut">Back</button>
+     </div>
+   </div>
+   <div class="span8">
+    <script src="https://gist.github.com/dan-silver/5941468.js"></script>
+  </div>
+</div>
 </div>
 <div class="row">
+  <h2>All transitions</h2>
   <div class="pt-perspective pt-rotate span2" pt-out='{{t.enter}}' pt-in='{{t.leave}}' ng-repeat="t in transitions">
    <div class="pt-page" ng-repeat="i in getNumber(number)">
     <h5>In: {{t.enter}}</h5>

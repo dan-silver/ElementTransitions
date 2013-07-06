@@ -40,3 +40,9 @@ button.pt-rotate {
 .code-demos .pt-perspective{
   margin: 0px;
 }
+
+.pt-page button.pt-rotate {
+  position: relative;
+  margin-top: 40px;
+  margin-left: 10px;
+}

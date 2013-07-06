@@ -1,6 +1,4 @@
 function demo($scope) {
-    $scope.enter = "moveToLeft"
-    $scope.leave = "moveFromRight"
     $scope.number = 5;
     $scope.getNumber = function(num) {
         return new Array(num)
