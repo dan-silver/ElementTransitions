@@ -40,12 +40,9 @@
     <div class="code-demos">
       <div class="demo">
         <div class="row-fluid">
-          <h1>Code Examples</h1>
+          <h2>Example 1 - Rotate by clicking on the slides</h2>
         </div>
-        <div class="row-fluid">
-          Basic example with rotating the slides activated by clicking on them.
-        </div>
-        <div class="pt-perspective pt-rotate span6" pt-in="rotateSlideIn" pt-out="rotateSlideOut">
+        <div class="pt-perspective pt-rotate span4" pt-in="rotateSlideIn" pt-out="rotateSlideOut">
           <div class="pt-page">
            <h2>Page 1</h2>
          </div>
@@ -53,18 +50,35 @@
            <h2>Page 2</h2>
          </div>
        </div>
-       <div class="span6">
+       <div class="span8">
         <script src="https://gist.github.com/dan-silver/5941380.js"></script>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="pt-perspective pt-rotate span2" pt-out='{{t.enter}}' pt-in='{{t.leave}}' ng-repeat="t in transitions">
-     <div class="pt-page" ng-repeat="i in getNumber(number)">
-      <h5>In: {{t.enter}}</h5>
-      <h5>Out: {{t.leave}}</h5>
+    <div class="demo">
+      <div class="row-fluid">
+        <h2>Example 2 - Rotate by clicking on a button</h2>
+      </div>
+      <div class="pt-perspective span4">
+        <button class="pt-rotate btn" pt-in="rotateSlideIn" pt-out="rotateSlideOut">Next</button>
+        <div class="pt-page">
+         <h2>Page 1</h2>
+       </div>
+       <div class="pt-page">
+         <h2>Page 2</h2>
+       </div>
+     </div>
+     <div class="span8">
+      <script src="https://gist.github.com/dan-silver/5941430.js"></script>
     </div>
   </div>
+</div>
+<div class="row">
+  <div class="pt-perspective pt-rotate span2" pt-out='{{t.enter}}' pt-in='{{t.leave}}' ng-repeat="t in transitions">
+   <div class="pt-page" ng-repeat="i in getNumber(number)">
+    <h5>In: {{t.enter}}</h5>
+    <h5>Out: {{t.leave}}</h5>
+  </div>
+</div>
 </div>
 </div>
 
