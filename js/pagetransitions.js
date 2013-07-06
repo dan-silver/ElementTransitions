@@ -1,7 +1,6 @@
 var PageTransitions = (function() {
 
-	var $main = $( '#pt-main' ),
-	startElement = 0,
+	var startElement = 0,
 	endCurrPage = false,
 	endNextPage = false,
 	animEndEventNames = {
