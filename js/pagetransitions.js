@@ -2,7 +2,6 @@ var PageTransitions = (function() {
 
 	var $main = $( '#pt-main' ),
 		startElement = 0,
-		isAnimating = false,
 		endCurrPage = false,
 		endNextPage = false,
 		animEndEventNames = {
@@ -22,6 +21,7 @@ var PageTransitions = (function() {
 		});
 		$(".pt-perspective").each( function() {
 			$(this).data('current', 0)
+			$(this).data('isAnimating', false)
 			$(this).children(".pt-page").eq(startElement).addClass( 'pt-page-current' );
 		});
 
@@ -34,11 +34,11 @@ var PageTransitions = (function() {
 			pagesCount = $pages.length
 
 		
-		if( isAnimating ) {
+		if( block.data('isAnimating')) {
 			return false;
 		}
 
-		isAnimating = true;
+		block.data('isAnimating', true);
 		
 		var $currPage = $pages.eq(current);
 
@@ -330,7 +330,7 @@ var PageTransitions = (function() {
 			$currPage.off( animEndEventName );
 			endCurrPage = true;
 			if( endNextPage ) {
-				onEndAnimation( $currPage, $nextPage );
+				onEndAnimation( $currPage, $nextPage, block );
 			}
 		} );
 
@@ -338,21 +338,21 @@ var PageTransitions = (function() {
 			$nextPage.off( animEndEventName );
 			endNextPage = true;
 			if( endCurrPage ) {
-				onEndAnimation( $currPage, $nextPage );
+				onEndAnimation( $currPage, $nextPage, block );
 			}
 		} );
 
 		if( !support ) {
-			onEndAnimation( $currPage, $nextPage );
+			onEndAnimation( $currPage, $nextPage, block );
 		}
 
 	}
 
-	function onEndAnimation( $outpage, $inpage ) {
+	function onEndAnimation( $outpage, $inpage, block ) {
 		endCurrPage = false;
 		endNextPage = false;
 		resetPage( $outpage, $inpage );
-		isAnimating = false;
+		block.data('isAnimating' , false);
 	}
 
 	function resetPage( $outpage, $inpage ) {
