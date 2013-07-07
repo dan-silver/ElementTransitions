@@ -13,6 +13,7 @@
   <script src="js/demo.js"></script>
 </head>
 <body ng-controller="demo">
+  <a href="https://github.com/dan-silver/ElementTransitions.js"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:1050" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
   <div class="container">
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -22,14 +23,29 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#" data-target="body">ElementTransitions.js</a>
+          <a class="brand" href="#" data-target=".section-info">ElementTransitions.js</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href="#" data-target=".code-demos" >Examples</a></li>
               <li><a href="#" data-target=".section-transitions">Transitions</a></li>
+              <li><a href="#" data-target=".code-demos" >Examples</a></li>
               <li><a href="#" data-target=".install">Installation</a></li>
             </ul>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="row section-info hero-unit">
+      <h1>elementTransitions.js</h1>
+      <p>This repository is a wrapper around the code provided by a <a href="http://tympanus.net/codrops/2013/05/07/a-collection-of-page-transitions/">codrops article on page transitions</a>.  Their code has been modified to allow more than one animatable element per page.  Additionally, you can now add transitions <a href="#" data-target=".code-demos">straight from html tags</a>.</p>
+    </div>
+    <div class="row section-transitions">
+      <h2>All Transitions</h2>
+      <div class="et-wrapper et-rotate span3" et-out='{{t.leave}}' et-in='{{t.enter}}' ng-repeat="t in transitions">
+        <div class="et-page" ng-repeat="i in getNumber(number)">
+          <h5>In:</h5>
+          {{t.enter}}
+          <h5>Out:</h5>
+          {{t.leave}}
         </div>
       </div>
     </div>
@@ -37,7 +53,7 @@
       <h2>Examples</h2>
       <div class="demo">
         <div class="row-fluid">
-          <h4>Rotate by clicking on the element</h4>
+          <h4>Rotate on element click</h4>
         </div>
         <div class="et-wrapper et-rotate span4" et-in="rotateSlideIn" et-out="rotateSlideOut">
           <div class="et-page">
@@ -53,7 +69,7 @@
       </div>
       <div class="demo">
         <div class="row-fluid">
-          <h4>Rotate by clicking on a button</h4>
+          <h4>Rotate on button click</h4>
         </div>
         <div class="et-wrapper span4">
           <button class="et-rotate btn" et-in="rotateSlideIn" et-out="rotateSlideOut">Next</button>
@@ -70,7 +86,7 @@
     </div>
     <div class="demo">
       <div class="row-fluid">
-        <h4>Different Transitions</h4>
+        <h4>Different transitions</h4>
       </div>
       <div class="et-wrapper span4">
         <div class="et-page">
@@ -84,15 +100,6 @@
      </div>
      <div class="span8">
       <script src="https://gist.github.com/dan-silver/5941468.js"></script>
-    </div>
-  </div>
-</div>
-<div class="row section-transitions">
-  <h2>All transitions</h2>
-  <div class="et-wrapper et-rotate span2" et-out='{{t.leave}}' et-in='{{t.enter}}' ng-repeat="t in transitions">
-    <div class="et-page" ng-repeat="i in getNumber(number)">
-      <h5>In: {{t.enter}}</h5>
-      <h5>Out: {{t.leave}}</h5>
     </div>
   </div>
 </div>
