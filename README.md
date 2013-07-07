@@ -1,2 +1,4 @@
 ## ElementTransitions.js
-More info coming soon.
+This repository is a wrapper around the code provided by a (codrops article on page transitions)[http://tympanus.net/codrops/2013/05/07/a-collection-of-page-transitions/].  Their code has been modified to allow more than one animatable element per page and support has been added for transitions without writing any javascript.
+
+#### (Demo)[http://dan-silver.github.io/ElementTransitions.js/]
