@@ -1,16 +1,29 @@
 var PageTransitions = (function() {
 
-	var startElement = 0
+	var startElement = 0,
 	animEndEventNames = {
 		'WebkitAnimation' : 'webkitAnimationEnd',
 		'OAnimation' : 'oAnimationEnd',
 		'msAnimation' : 'MSAnimationEnd',
 		'animation' : 'animationend'
-	},
+	}
+		
+		function getTransitionPrefix() {
+		    var b = document.body || document.documentElement;
+		    var s = b.style;
+		    var p = 'animation'
+		    if(typeof s[p] == 'string') {return 'animation' }
+
+		    // Tests for vendor specific prop
+		    v = ['Moz', 'Webkit', 'Khtml', 'O', 'ms'],
+		    p = p.charAt(0).toUpperCase() + p.substr(1);
+		    for(var i=0; i<v.length; i++) {
+		      if(typeof s[v[i] + p] == 'string') { return v[i] + p }
+		    }
+		    return false
+		}
 		// animation end event name
-		animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ],
-		// support css animations
-		support = Modernizr.cssanimations
+		animEndEventName = animEndEventNames[ getTransitionPrefix() ]
 
 		function init() {
 			$(".et-page").each( function() {
@@ -75,10 +88,6 @@ var PageTransitions = (function() {
 					onEndAnimation( $currPage, $nextPage, block )
 				}
 			} )
-
-			if( !support ) {
-				onEndAnimation( $currPage, $nextPage, block )
-			}
 
 		}
 
