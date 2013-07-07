@@ -13,21 +13,21 @@ var PageTransitions = (function() {
 		support = Modernizr.cssanimations
 
 		function init() {
-			$(".pt-page").each( function() {
+			$(".et-page").each( function() {
 				$(this).data( 'originalClassList', $(this).attr( 'class' ) )
 			})
-			$(".et-wrapper`").each( function() {
+			$(".et-wrapper").each( function() {
 				$(this).data('current', 0)
 				$(this).data('isAnimating', false)
-				$(this).children(".pt-page").eq(startElement).addClass( 'pt-page-current' )
+				$(this).children(".et-page").eq(startElement).addClass( 'et-page-current' )
 			})
 
-			$(".pt-rotate").click(function() {
+			$(".et-rotate").click(function() {
 				animate($(this))
 			})
 		}
 		function animate(block) {
-			nextPage($(block).closest('.et-wrapper'), $(block).attr('pt-out'), $(block).attr('pt-in'))
+			nextPage($(block).closest('.et-wrapper'), $(block).attr('et-out'), $(block).attr('et-in'))
 		}
 
 		function nextPage( block, outClass, inClass ) {
@@ -35,7 +35,7 @@ var PageTransitions = (function() {
 			var inClass = formatClass(inClass),
 				outClass = formatClass(outClass),
 				current = block.data('current'),
-				$pages = block.children( 'div.pt-page' ),
+				$pages = block.children( 'div.et-page' ),
 				pagesCount = $pages.length,
 				endCurrPage = false,
 				endNextPage = false
@@ -57,7 +57,7 @@ var PageTransitions = (function() {
 			}
 			block.data('current', current)
 
-			var $nextPage = $pages.eq(current).addClass( 'pt-page-current' )
+			var $nextPage = $pages.eq(current).addClass( 'et-page-current' )
 
 
 			$currPage.addClass( outClass ).on( animEndEventName, function() {
@@ -89,7 +89,7 @@ var PageTransitions = (function() {
 
 		function resetPage( $outpage, $inpage ) {
 			$outpage.attr( 'class', $outpage.data( 'originalClassList' ) )
-			$inpage.attr( 'class', $inpage.data( 'originalClassList' ) + ' pt-page-current' )
+			$inpage.attr( 'class', $inpage.data( 'originalClassList' ) + ' et-page-current' )
 		}
 
 		

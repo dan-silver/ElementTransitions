@@ -39,11 +39,11 @@
         <div class="row-fluid">
           <h4>Rotate by clicking on the element</h4>
         </div>
-        <div class="et-wrapper pt-rotate span4" pt-in="rotateSlideIn" pt-out="rotateSlideOut">
-          <div class="pt-page">
+        <div class="et-wrapper et-rotate span4" et-in="rotateSlideIn" et-out="rotateSlideOut">
+          <div class="et-page">
            <h2>Page 1</h2>
          </div>
-         <div class="pt-page">
+         <div class="et-page">
            <h2>Page 2</h2>
          </div>
        </div>
@@ -56,11 +56,11 @@
         <h4>Rotate by clicking on a button</h4>
       </div>
       <div class="et-wrapper span4">
-        <button class="pt-rotate btn" pt-in="rotateSlideIn" pt-out="rotateSlideOut">Next</button>
-        <div class="pt-page">
+        <button class="et-rotate btn" et-in="rotateSlideIn" et-out="rotateSlideOut">Next</button>
+        <div class="et-page">
          <h2>Page 1</h2>
        </div>
-       <div class="pt-page">
+       <div class="et-page">
          <h2>Page 2</h2>
        </div>
      </div>
@@ -73,13 +73,13 @@
       <h4>Different Transitions</h4>
     </div>
     <div class="et-wrapper span4">
-      <div class="pt-page">
+      <div class="et-page">
        <h2>Page 1</h2>
-       <button class="pt-rotate btn" pt-in="rotateCarouselRightIn" pt-out="rotateCarouselRightOut">Next</button>
+       <button class="et-rotate btn" et-in="rotateCarouselRightIn" et-out="rotateCarouselRightOut">Next</button>
      </div>
-     <div class="pt-page">
+     <div class="et-page">
        <h2>Page 2</h2>
-       <button class="pt-rotate btn" pt-in="rotateCarouselLeftIn" pt-out="rotateCarouselLeftOut">Back</button>
+       <button class="et-rotate btn" et-in="rotateCarouselLeftIn" et-out="rotateCarouselLeftOut">Back</button>
      </div>
    </div>
    <div class="span8">
@@ -89,8 +89,8 @@
 </div>
 <div class="row section-transitions">
   <h2>All transitions</h2>
-  <div class="et-wrapper pt-rotate span2" pt-out='{{t.enter}}' pt-in='{{t.leave}}' ng-repeat="t in transitions">
-   <div class="pt-page" ng-repeat="i in getNumber(number)">
+  <div class="et-wrapper et-rotate span2" et-out='{{t.enter}}' et-in='{{t.leave}}' ng-repeat="t in transitions">
+   <div class="et-page" ng-repeat="i in getNumber(number)">
     <h5>In: {{t.enter}}</h5>
     <h5>Out: {{t.leave}}</h5>
   </div>
