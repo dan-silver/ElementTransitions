@@ -40,6 +40,23 @@
         </div>
         <div class="et-wrapper et-rotate span4" et-in="rotateSlideIn" et-out="rotateSlideOut">
           <div class="et-page">
+            <h2>Page 1</h2>
+          </div>
+          <div class="et-page">
+            <h2>Page 2</h2>
+          </div>
+        </div>
+        <div class="span8">
+          <script src="https://gist.github.com/dan-silver/5941380.js"></script>
+        </div>
+      </div>
+      <div class="demo">
+        <div class="row-fluid">
+          <h4>Rotate by clicking on a button</h4>
+        </div>
+        <div class="et-wrapper span4">
+          <button class="et-rotate btn" et-in="rotateSlideIn" et-out="rotateSlideOut">Next</button>
+          <div class="et-page">
            <h2>Page 1</h2>
          </div>
          <div class="et-page">
@@ -47,53 +64,36 @@
          </div>
        </div>
        <div class="span8">
-        <script src="https://gist.github.com/dan-silver/5941380.js"></script>
+        <script src="https://gist.github.com/dan-silver/5941430.js"></script>
       </div>
     </div>
     <div class="demo">
       <div class="row-fluid">
-        <h4>Rotate by clicking on a button</h4>
+        <h4>Different Transitions</h4>
       </div>
       <div class="et-wrapper span4">
-        <button class="et-rotate btn" et-in="rotateSlideIn" et-out="rotateSlideOut">Next</button>
         <div class="et-page">
          <h2>Page 1</h2>
+         <button class="et-rotate btn" et-in="rotateCarouselRightIn" et-out="rotateCarouselRightOut">Next</button>
        </div>
        <div class="et-page">
          <h2>Page 2</h2>
+         <button class="et-rotate btn" et-in="rotateCarouselLeftIn" et-out="rotateCarouselLeftOut">Back</button>
        </div>
      </div>
      <div class="span8">
-      <script src="https://gist.github.com/dan-silver/5941430.js"></script>
+      <script src="https://gist.github.com/dan-silver/5941468.js"></script>
     </div>
   </div>
-  <div class="demo">
-    <div class="row-fluid">
-      <h4>Different Transitions</h4>
-    </div>
-    <div class="et-wrapper span4">
-      <div class="et-page">
-       <h2>Page 1</h2>
-       <button class="et-rotate btn" et-in="rotateCarouselRightIn" et-out="rotateCarouselRightOut">Next</button>
-     </div>
-     <div class="et-page">
-       <h2>Page 2</h2>
-       <button class="et-rotate btn" et-in="rotateCarouselLeftIn" et-out="rotateCarouselLeftOut">Back</button>
-     </div>
-   </div>
-   <div class="span8">
-    <script src="https://gist.github.com/dan-silver/5941468.js"></script>
-  </div>
-</div>
 </div>
 <div class="row section-transitions">
   <h2>All transitions</h2>
   <div class="et-wrapper et-rotate span2" et-out='{{t.leave}}' et-in='{{t.enter}}' ng-repeat="t in transitions">
-   <div class="et-page" ng-repeat="i in getNumber(number)">
-    <h5>In: {{t.enter}}</h5>
-    <h5>Out: {{t.leave}}</h5>
+    <div class="et-page" ng-repeat="i in getNumber(number)">
+      <h5>In: {{t.enter}}</h5>
+      <h5>Out: {{t.leave}}</h5>
+    </div>
   </div>
-</div>
 </div>
 </div>
 
