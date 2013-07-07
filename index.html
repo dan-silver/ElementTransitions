@@ -89,7 +89,7 @@
 </div>
 <div class="row section-transitions">
   <h2>All transitions</h2>
-  <div class="et-wrapper et-rotate span2" et-out='{{t.enter}}' et-in='{{t.leave}}' ng-repeat="t in transitions">
+  <div class="et-wrapper et-rotate span2" et-out='{{t.leave}}' et-in='{{t.enter}}' ng-repeat="t in transitions">
    <div class="et-page" ng-repeat="i in getNumber(number)">
     <h5>In: {{t.enter}}</h5>
     <h5>Out: {{t.leave}}</h5>
