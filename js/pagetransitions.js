@@ -28,8 +28,8 @@ var PageTransitions = (function() {
 		}
 		function animate(block) {
 			nextPage($(block).closest('.pt-perspective'), $(block).attr('pt-out'), $(block).attr('pt-in'))
-
 		}
+
 		function nextPage( block, outClass, inClass ) {
 			block = $(block)
 			var inClass = formatClass(inClass),
