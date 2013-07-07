@@ -4,7 +4,7 @@ function demo($scope) {
         return new Array(num)
     }
     setInterval(function() {
-        PageTransitions.animate($(".section-transitions .et-wrapper")[Math.floor((Math.random()*60))])
+        PageTransitions.animate($(".section-transitions .et-wrapper")[Math.floor((Math.random()*66))])
     },70)
   $scope.transitions = [
     {leave:"moveToLeft", enter:"moveFromRight"},
