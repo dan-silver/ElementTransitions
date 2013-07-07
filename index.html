@@ -27,7 +27,7 @@
             <ul class="nav">
               <li><a href="#" data-target=".section-transitions">Transitions</a></li>
               <li><a href="#" data-target=".code-demos" >Examples</a></li>
-              <li><a href="#" data-target=".section-install">Installation</a></li>
+              <li><a href="#" data-target=".section-usage">Usage</a></li>
             </ul>
           </div>
         </div>
@@ -36,6 +36,7 @@
     <div class="row section-info hero-unit">
       <h1>elementTransitions.js</h1>
       <p>This repository is a wrapper around the code provided by a <a href="http://tympanus.net/codrops/2013/05/07/a-collection-of-page-transitions/">codrops article on page transitions</a>.  Their code has been modified to allow more than one animatable element per page.  Additionally, you can now add transitions <a href="#" data-target=".code-demos">straight from html tags</a>.</p>
+      <iframe src="http://ghbtns.com/github-btn.html?user=dan-silver&repo=ElementTransitions.js&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="117" height="32"></iframe><iframe src="http://ghbtns.com/github-btn.html?user=dan-silver&repo=ElementTransitions.js&type=follow&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="195" height="32"></iframe>
     </div>
     <div class="row section-transitions">
       <h2>All Transitions</h2>
@@ -105,13 +106,39 @@
     </div>
   </div>
 </div>
-<div class="row section-install">
-  <h2>Installation</h2>
+<div class="row section-usage">
+  <h2>Usage</h2>
   <p>
     jQuery needs to be included before the elementTransitions javascript file.  To load elementTransitions, add elementTransitions.js and elementTransitions.css to your page.  Here is an example of what should be in your head tag.
   </p>
     <script src="https://gist.github.com/dan-silver/5942389.js"></script>
-
+  <p>
+    Some animations use additional properties, such as a delay or "ontop".  These can be added inside the same et-in and et-out tags separated by a space.
+  </p>
+  <div class="et-wrapper et-rotate span4" et-out="scaleDown" et-in="scaleUpDown delay300">
+    <div class="et-page ng-scope ng-binding">
+      <h5>In:</h5>
+      scaleUpDown delay300
+      <h5>Out:</h5>
+      scaleDown
+    </div>
+    <div class="et-page ng-scope ng-binding">
+      <h5>In:</h5>
+      scaleUpDown delay300
+      <h5>Out:</h5>
+      scaleDown
+    </div>
+    <div class="et-page ng-scope ng-binding">
+      <h5>In:</h5>
+      scaleUpDown delay300
+      <h5>Out:</h5>
+      scaleDown
+    </div>
+  </div>
+  <div class="span8">
+    <script src="https://gist.github.com/dan-silver/5944089.js"></script>
+  </div>
+    
 </div>
 
 
