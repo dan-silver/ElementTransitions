@@ -16,7 +16,7 @@ var PageTransitions = (function() {
 			$(".pt-page").each( function() {
 				$(this).data( 'originalClassList', $(this).attr( 'class' ) )
 			})
-			$(".pt-perspective").each( function() {
+			$(".et-wrapper`").each( function() {
 				$(this).data('current', 0)
 				$(this).data('isAnimating', false)
 				$(this).children(".pt-page").eq(startElement).addClass( 'pt-page-current' )
@@ -27,7 +27,7 @@ var PageTransitions = (function() {
 			})
 		}
 		function animate(block) {
-			nextPage($(block).closest('.pt-perspective'), $(block).attr('pt-out'), $(block).attr('pt-in'))
+			nextPage($(block).closest('.et-wrapper'), $(block).attr('pt-out'), $(block).attr('pt-in'))
 		}
 
 		function nextPage( block, outClass, inClass ) {

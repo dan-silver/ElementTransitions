@@ -10,7 +10,7 @@ button.pt-rotate {
   z-index: 999;
 }
 
-.pt-perspective {
+.et-wrapper {
   height: 170px;
   float: left;
   margin: 15px;
@@ -38,7 +38,7 @@ button.pt-rotate {
 .pt-page:nth-child(5) {
   background: #fd6a62;
 }
-.code-demos .pt-perspective{
+.code-demos .et-wrapper{
   margin: 0px;
 }
 

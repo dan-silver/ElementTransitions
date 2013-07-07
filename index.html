@@ -39,7 +39,7 @@
         <div class="row-fluid">
           <h4>Rotate by clicking on the element</h4>
         </div>
-        <div class="pt-perspective pt-rotate span4" pt-in="rotateSlideIn" pt-out="rotateSlideOut">
+        <div class="et-wrapper pt-rotate span4" pt-in="rotateSlideIn" pt-out="rotateSlideOut">
           <div class="pt-page">
            <h2>Page 1</h2>
          </div>
@@ -55,7 +55,7 @@
       <div class="row-fluid">
         <h4>Rotate by clicking on a button</h4>
       </div>
-      <div class="pt-perspective span4">
+      <div class="et-wrapper span4">
         <button class="pt-rotate btn" pt-in="rotateSlideIn" pt-out="rotateSlideOut">Next</button>
         <div class="pt-page">
          <h2>Page 1</h2>
@@ -72,7 +72,7 @@
     <div class="row-fluid">
       <h4>Different Transitions</h4>
     </div>
-    <div class="pt-perspective span4">
+    <div class="et-wrapper span4">
       <div class="pt-page">
        <h2>Page 1</h2>
        <button class="pt-rotate btn" pt-in="rotateCarouselRightIn" pt-out="rotateCarouselRightOut">Next</button>
@@ -89,7 +89,7 @@
 </div>
 <div class="row section-transitions">
   <h2>All transitions</h2>
-  <div class="pt-perspective pt-rotate span2" pt-out='{{t.enter}}' pt-in='{{t.leave}}' ng-repeat="t in transitions">
+  <div class="et-wrapper pt-rotate span2" pt-out='{{t.enter}}' pt-in='{{t.leave}}' ng-repeat="t in transitions">
    <div class="pt-page" ng-repeat="i in getNumber(number)">
     <h5>In: {{t.enter}}</h5>
     <h5>Out: {{t.leave}}</h5>

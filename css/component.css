@@ -1,6 +1,6 @@
 html, body { height: 100%; }
 
-.pt-perspective {
+.et-wrapper {
 	position: relative;
 	-webkit-perspective: 1200px;
 	-moz-perspective: 1200px;
