@@ -102,6 +102,8 @@
 
   function onEndAnimation($outpage, $inpage, block) {
     resetPage($outpage, $inpage);
+    $outpage.trigger("animation.out.complete");
+    $inpage.trigger("animation.in.complete");
     block.data('isAnimating', false);
   }
 
