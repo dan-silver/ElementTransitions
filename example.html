@@ -5,9 +5,17 @@
     <link rel="stylesheet" type="text/css" href="css/elementTransitions.css" />
     <script src="js/elementTransitions.js"></script>
     <style>
+      body{
+        padding: 0px;
+        margin: 0px;
+        background-color: #222;
+      }
+      .et-page h2{
+        margin: 100px;
+      }
       .et-wrapper {
-        width: 200px;
-        height: 200px;
+        width: 100%;
+        height: 800px;
       }
       .et-page:nth-child(1) {
         background: red;
@@ -21,14 +29,14 @@
     </style>
   </head>
   <body>
-    <div class="et-wrapper et-rotate" et-in="rotateCarouselBottomIn" et-out="rotateCarouselBottomOut ontop">
-      <div class="et-page">
+    <div class="et-wrapper " >
+      <div class="et-page et-rotate" et-step=2 et-in="rotateCarouselBottomIn" et-out="rotateCarouselBottomOut ontop">
         <h2>Page 1</h2>
       </div>
-      <div class="et-page">
+      <div class="et-page et-rotate" et-step=-1 et-in="rotateCarouselBottomIn" et-out="rotateCarouselBottomOut ontop">
         <h2>Page 2</h2>
       </div>
-      <div class="et-page">
+      <div class="et-page et-rotate" et-step=-1 et-in="rotateCarouselBottomIn" et-out="rotateCarouselBottomOut ontop">
         <h2>Page 3</h2>
       </div>
     </div>
