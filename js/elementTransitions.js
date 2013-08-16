@@ -72,14 +72,9 @@
     block.data('isAnimating', true);
 
     var $currPage = $pages.eq(current);
-    if(current < pagesCount - 1 ) {
-      current=current*1 + step*1;
-    }
-    else {
-      if(step==1)
-        current = 0;
-      else
-        current = current*1 + step*1;
+    current=current*1 + step*1;
+    if(current >= pagesCount  ) {
+      current=0;
     }
     block.data('current', current);
 
