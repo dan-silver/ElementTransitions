@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/elementTransitions.css" />
+    <script src="js/elementTransitions.js"></script>
+    <style>
+      .et-wrapper {
+        width: 200px;
+        height: 200px;
+      }
+      .et-page:nth-child(1) {
+        background: red;
+      }
+      .et-page:nth-child(2) {
+        background: blue;
+      }
+      .et-page:nth-child(3) {
+        background: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="et-wrapper et-rotate" et-in="rotateCarouselBottomIn" et-out="rotateCarouselBottomOut ontop">
+      <div class="et-page">
+        <h2>Page 1</h2>
+      </div>
+      <div class="et-page">
+        <h2>Page 2</h2>
+      </div>
+      <div class="et-page">
+        <h2>Page 3</h2>
+      </div>
+    </div>
+  </body>
+</html>

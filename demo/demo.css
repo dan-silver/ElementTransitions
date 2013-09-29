@@ -1,0 +1,49 @@
+body {
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  padding: 50px;
+}
+
+button.et-rotate {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 999;
+}
+
+.et-wrapper {
+  height: 170px;
+  float: left;
+  margin: 15px;
+}
+
+.et-page {
+  padding: 8px;
+}
+.et-page:nth-child(1) {
+  background: #0ac2d2;
+}
+
+.et-page:nth-child(2) {
+  background: #f68dbb;
+}
+
+.et-page:nth-child(3) {
+  background: #60d7a9;
+}
+
+.et-page:nth-child(4) {
+  background: #fdc162;
+}
+
+.et-page:nth-child(5) {
+  background: #fd6a62;
+}
+.code-demos .et-wrapper{
+  margin: 0px;
+}
+
+.et-page button.et-rotate {
+  position: relative;
+  margin-top: 40px;
+  margin-left: 10px;
+}
