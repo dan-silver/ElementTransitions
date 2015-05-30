@@ -4,26 +4,36 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-      },
       build: {
         src: ['src/js/*.js'],
         dest: 'build/<%= pkg.name %>.min.js'
       }
     },
     cssmin: {
-        my_target: {
-            src: 'src/css/*.css',
-            dest: 'build/<%= pkg.name %>.css'
+      target: {
+        files: {
+          'build/<%= pkg.name %>.css' : 'src/css/*.css'
         }
+      }
+    },
+    usebanner: {
+      taskName: {
+        options: {
+          position: 'top',
+          banner: '/* <%= pkg.name %>\nhttps://github.com/dan-silver/ElementTransitions.js %> */\n',
+          linebreak: true
+        },
+        files: {
+          src: ['build/*']
+        }
+      }
     }
   });
 
-  // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-css');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-banner');
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'cssmin']);
+  grunt.registerTask('default', ['uglify', 'cssmin', 'usebanner']);
 
 };
