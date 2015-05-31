@@ -1,6 +1,3 @@
-/*
-  elementTransitions.js
-*/
 var PageTransitions = (function($) {
   var startElement = 0,
   animEndEventNames = {
@@ -18,7 +15,7 @@ var PageTransitions = (function($) {
       return 'animation';
 
     // Tests for vendor specific prop
-    v = ['Moz', 'Webkit', 'Khtml', 'O', 'ms'],
+    var v = ['Moz', 'Webkit', 'Khtml', 'O', 'ms'],
     p = p.charAt(0).toUpperCase() + p.substr(1);
     for( var i=0; i<v.length; i++ ) {
       if(typeof s[v[i] + p] == 'string')
@@ -45,10 +42,13 @@ var PageTransitions = (function($) {
   }
 
   function animate(block, callback) {
-    nextPage($(block).closest('.et-wrapper'), $(block).attr('et-out'), $(block).attr('et-in'), callback);
+    nextPage($(block).closest('.et-wrapper'), $(block).attr('et-out'), $(block).attr('et-in'), $(block).attr('et-step'), callback);
   }
 
-  function nextPage(block, outClass, inClass, callback) {
+  function nextPage(block, outClass, inClass, step, callback) {
+    if (step === undefined)
+      step = 1;
+
     block = $(block);
     inClass = formatClass(inClass);
     outClass = formatClass(outClass);
@@ -65,12 +65,11 @@ var PageTransitions = (function($) {
     block.data('isAnimating', true);
 
     var $currPage = $pages.eq(current);
-    if(current < pagesCount - 1) {
-      current++;
+    current = current*1 + step*1;
+    if (current >= pagesCount) {
+      current=0;
     }
-    else {
-      current = 0;
-    }
+
     block.data('current', current);
 
     var $nextPage = $pages.eq(current).addClass('et-page-current');
@@ -97,6 +96,8 @@ var PageTransitions = (function($) {
 
   function onEndAnimation($outpage, $inpage, block) {
     resetPage($outpage, $inpage);
+    $outpage.trigger("animation.out.complete");
+    $inpage.trigger("animation.in.complete");
     block.data('isAnimating', false);
   }
 
