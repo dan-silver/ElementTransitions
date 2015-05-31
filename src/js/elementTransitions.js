@@ -42,8 +42,8 @@ var PageTransitions = (function($) {
   }
 
   function animate(block, callback) {
-    var outClass = $(block).attr('et-out'),
-        inClass  = $(block).attr('et-in'),
+    var outClass = formatClass($(block).attr('et-out')),
+        inClass  = formatClass($(block).attr('et-in')),
         step     = $(block).attr('et-step'),
         block    = $(block).closest('.et-wrapper')
 
@@ -51,8 +51,6 @@ var PageTransitions = (function($) {
       step = 1;
 
     block = $(block);
-    inClass = formatClass(inClass);
-    outClass = formatClass(outClass);
     var current = block.data('current'),
         $pages = block.children('.et-page'),
         pagesCount = $pages.length,
@@ -73,9 +71,13 @@ var PageTransitions = (function($) {
 
     block.data('current', current);
 
-    var $nextPage = $pages.eq(current).addClass('et-page-current');
+    var $nextPage = $pages.eq(current);
 
-    $currPage.addClass(outClass).on(animEndEventName, function() {
+    outClass.forEach(function(c) {
+      $currPage.addClass(c);
+    });
+
+    $currPage.on(animEndEventName, function() {
       $currPage.off(animEndEventName);
       endCurrPage = true;
       if(endNextPage) {
@@ -86,7 +88,12 @@ var PageTransitions = (function($) {
       }
     });
 
-    $nextPage.addClass(inClass).on(animEndEventName, function() {
+    inClass.forEach(function(c) {
+      $nextPage.addClass(c);
+    });
+    $nextPage.addClass("et-page-current");
+
+    $nextPage.on(animEndEventName, function() {
       $nextPage.off(animEndEventName);
       endNextPage = true;
       if(endCurrPage) {
@@ -109,9 +116,9 @@ var PageTransitions = (function($) {
 
   function formatClass(str) {
     var classes = str.split(" ");
-    var output = "";
-    for(var n=0; n<classes.length; n++){
-      output += " pt-page-" + classes[n];
+    var output = [];
+    for(var i=0; i<classes.length; i++){
+      output.push("pt-page-" + classes[i]);
     }
     return output;
   }
