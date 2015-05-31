@@ -42,10 +42,11 @@ var PageTransitions = (function($) {
   }
 
   function animate(block, callback) {
-    nextPage($(block).closest('.et-wrapper'), $(block).attr('et-out'), $(block).attr('et-in'), $(block).attr('et-step'), callback);
-  }
+    var outClass = $(block).attr('et-out'),
+        inClass  = $(block).attr('et-in'),
+        step     = $(block).attr('et-step'),
+        block    = $(block).closest('.et-wrapper')
 
-  function nextPage(block, outClass, inClass, step, callback) {
     if (step === undefined)
       step = 1;
 
@@ -116,7 +117,6 @@ var PageTransitions = (function($) {
   }
   return {
     init : init,
-    nextPage: nextPage,
     animate: animate
   };
 })(jQuery);
