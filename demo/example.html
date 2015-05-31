@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../build/elementTransitions.css" />
     <script src="../build/elementTransitions.min.js"></script>
     <style>
@@ -21,14 +21,14 @@
     </style>
   </head>
   <body>
-    <div class="et-wrapper et-rotate" et-in="rotateCarouselBottomIn" et-out="rotateCarouselBottomOut ontop">
-      <div class="et-page">
+    <div class="et-wrapper">
+      <div class="et-page et-rotate" et-step=2 et-in="rotateCarouselBottomIn" et-out="rotateCarouselBottomOut ontop">
         <h2>Page 1</h2>
       </div>
-      <div class="et-page">
+      <div class="et-page et-rotate" et-step=-1 et-in="rotateCarouselBottomIn" et-out="rotateCarouselBottomOut ontop">
         <h2>Page 2</h2>
       </div>
-      <div class="et-page">
+      <div class="et-page et-rotate" et-step=-1 et-in="rotateCarouselBottomIn" et-out="rotateCarouselBottomOut ontop">
         <h2>Page 3</h2>
       </div>
     </div>
