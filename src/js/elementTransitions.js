@@ -108,8 +108,8 @@ var PageTransitions = (function($) {
   }
 
   function formatClass(str) {
-    classes = str.split(" ");
-    output = "";
+    var classes = str.split(" ");
+    var output = "";
     for(var n=0; n<classes.length; n++){
       output += " pt-page-" + classes[n];
     }
