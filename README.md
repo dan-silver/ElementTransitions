@@ -1,4 +1,4 @@
-## ElementTransitions.js
+## ElementTransitions
 
 #### [Demo and example code](http://dan-silver.github.io/ElementTransitions/)
 
