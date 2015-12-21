@@ -128,6 +128,6 @@ var PageTransitions = (function($) {
   };
 })(jQuery);
 
-jQuery(function($) {
+document.addEventListener('DOMContentLoaded', function() {
   PageTransitions.init();
 });
