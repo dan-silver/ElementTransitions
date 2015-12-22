@@ -1,4 +1,9 @@
-var PageTransitions = (function($) {
+var PageTransitions = (function() {
+
+  String.prototype.bool = function() {
+    return (/^true$/i).test(this);
+  };
+
   var startElement = 0,
   animEndEventNames = {
     'WebkitAnimation': 'webkitAnimationEnd',
@@ -23,95 +28,102 @@ var PageTransitions = (function($) {
     }
     return false;
   }
-  // animation end event name
+  
   animEndEventName = animEndEventNames[getTransitionPrefix()];
 
   function init() {
-    $(".et-page").each(function() {
-      $(this).data('originalClassList', $(this).attr('class'));
-    });
-    $(".et-wrapper").each(function() {
-      $(this).data('current', 0);
-      $(this).data('isAnimating', false);
-      $(this).children(".et-page").eq(startElement).addClass('et-page-current');
+    each(".et-page", function(e) {
+      e.setAttribute('originalClassList', e.className);
     });
 
-    $(".et-rotate").click(function() {
-      animate($(this));
+    each(".et-wrapper", function(e) {
+      e.setAttribute('current', 0);
+      e.setAttribute('isAnimating', false);
+      e.querySelectorAll(".et-page")[startElement].classList.add('et-page-current');
+    });
+
+    each(".et-rotate", function(e) {
+      e.addEventListener('click', function() {
+        animate(this);
+      })
     });
   }
 
+  var each = function(query, callback) {
+    return Array.prototype.slice.call(document.querySelectorAll(query), 0).map(callback);
+  };
+
   function animate(block, callback) {
-    var outClass = formatClass($(block).attr('et-out')),
-        inClass  = formatClass($(block).attr('et-in')),
-        step     = $(block).attr('et-step'),
-        block    = $(block).closest('.et-wrapper')
+    var outClass = formatClass(block.getAttribute('et-out')),
+        inClass  = formatClass(block.getAttribute('et-in')),
+        step     = block.getAttribute('et-step')
 
     if (step === undefined)
       step = 1;
 
-    block = $(block);
-    var current = block.data('current'),
-        $pages = block.children('.et-page'),
+    if (block.classList.contains('et-rotate') && !block.classList.contains('et-wrapper')) {
+      block = block.parentNode;
+      if (!block.classList.contains('et-wrapper')) {
+        block = block.parentNode;
+      }
+    }
+
+    var current = parseInt(block.getAttribute('current'), 10),
+        $pages = block.querySelectorAll('.et-page'),
         pagesCount = $pages.length,
         endCurrPage = false,
         endNextPage = false;
 
-    if(block.data('isAnimating')) {
+    if(block.getAttribute('isAnimating') && block.getAttribute('isAnimating').bool()) {
       return false;
     }
 
-    block.data('isAnimating', true);
+    block.setAttribute('isAnimating', true);
 
-    var $currPage = $pages.eq(current);
+    var $currPage = $pages[current];
     current = current*1 + step*1;
     if (current >= pagesCount) {
       current=0;
     }
 
-    block.data('current', current);
+    block.setAttribute('current', current);
 
-    var $nextPage = $pages.eq(current);
+    var $nextPage = $pages[current];
 
     outClass.forEach(function(c) {
-      $currPage.addClass(c);
+      $currPage.classList.add(c);
     });
 
-    $currPage.on(animEndEventName, function() {
-      $currPage.off(animEndEventName);
+    $currPage.addEventListener(animEndEventName, function handlecurr() {
+      this.removeEventListener(animEndEventName, handlecurr);
       endCurrPage = true;
       if(endNextPage) {
-        if(jQuery.isFunction(callback)) {
-          callback(block, $nextPage, $currPage);
+        if(typeof(callback) == "function") {
+          callback(block, $nextPage, this);
         }
-        onEndAnimation($currPage, $nextPage, block);
+        onEndAnimation(this, $nextPage, block);
       }
     });
 
     inClass.forEach(function(c) {
-      $nextPage.addClass(c);
+      $nextPage.classList.add(c);
     });
-    $nextPage.addClass("et-page-current");
 
-    $nextPage.on(animEndEventName, function() {
-      $nextPage.off(animEndEventName);
+    $nextPage.classList.add("et-page-current");
+
+    $nextPage.addEventListener(animEndEventName, function handlenext() {
+      $nextPage.removeEventListener(animEndEventName, handlenext);
       endNextPage = true;
       if(endCurrPage) {
-        onEndAnimation($currPage, $nextPage, block);
+        onEndAnimation($currPage, this, block);
       }
     });
   }
 
   function onEndAnimation($outpage, $inpage, block) {
-    resetPage($outpage, $inpage);
-    $outpage.trigger("animation.out.complete");
-    $inpage.trigger("animation.in.complete");
-    block.data('isAnimating', false);
-  }
-
-  function resetPage($outpage, $inpage) {
-    $outpage.attr('class', $outpage.data( 'originalClassList'));
-    $inpage.attr('class', $inpage.data( 'originalClassList') + ' et-page-current');
+    block.setAttribute('isAnimating', false);
+    $outpage.className = $outpage.getAttribute('originalClassList');
+    $inpage.className  = $inpage.getAttribute( 'originalClassList') + ' et-page-current';
   }
 
   function formatClass(str) {
@@ -122,11 +134,13 @@ var PageTransitions = (function($) {
     }
     return output;
   }
+
   return {
     init : init,
     animate: animate
   };
-})(jQuery);
+
+})();
 
 document.addEventListener('DOMContentLoaded', function() {
   PageTransitions.init();
