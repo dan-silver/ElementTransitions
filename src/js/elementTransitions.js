@@ -58,8 +58,9 @@ var PageTransitions = (function() {
         inClass  = formatClass(block.getAttribute('et-in')),
         step     = block.getAttribute('et-step')
 
-    if (step === undefined)
+    if (typeof(step) != "number") {
       step = 1;
+    }
 
     if (block.classList.contains('et-rotate') && !block.classList.contains('et-wrapper')) {
       block = block.parentNode;
@@ -67,6 +68,7 @@ var PageTransitions = (function() {
         block = block.parentNode;
       }
     }
+
 
     var current = parseInt(block.getAttribute('current'), 10),
         $pages = block.querySelectorAll('.et-page'),
@@ -81,9 +83,9 @@ var PageTransitions = (function() {
     block.setAttribute('isAnimating', true);
 
     var $currPage = $pages[current];
-    current = current*1 + step*1;
+    current = current + step*1;
     if (current >= pagesCount) {
-      current=0;
+      current = 0;
     }
 
     block.setAttribute('current', current);
