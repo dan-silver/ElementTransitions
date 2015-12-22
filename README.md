@@ -10,4 +10,4 @@ The css animations in elementTransitions.css were written by Codrops and therefo
 
 ##### Credits
 
-@james2doyle - Provided code for removing jQuery as a dependency
+[james2doyle](https://github.com/james2doyle) - Provided code for removing jQuery as a dependency
