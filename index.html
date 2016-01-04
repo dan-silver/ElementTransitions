@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html ng-app lang="en" class="no-js">
+<html ng-app="demo" lang="en" class="no-js">
 <head>
   <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="build/elementTransitions.css" />
+  <link rel="stylesheet" type="text/css" href="build/elementTransitions.min.css" />
   <link rel="stylesheet" type="text/css" href="demo/demo.css" />
 
 
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+
 
   <script src="build/elementTransitions.min.js"></script>
   <script src="demo/demo.js"></script>
 </head>
 <body ng-controller="demo">
-  <a href="https://github.com/dan-silver/ElementTransitions.js"><img style="position: fixed; top: 0; right: 0; border: 0;z-index:1050" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+  <a href="https://github.com/dan-silver/ElementTransitions.js">
+    <img style="position: fixed; top: 0; right: 0; border: 0;z-index:1050" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub">
+  </a>
   <div class="container">
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -44,7 +46,7 @@
     <div class="row section-transitions">
       <h2>All Transitions</h2>
       <div class="et-wrapper et-rotate span3" et-out='{{t.leave}}' et-in='{{t.enter}}' ng-repeat="t in transitions">
-        <div class="et-page" ng-repeat="i in getNumber(number)">
+        <div class="et-page" ng-repeat="i in getNumber(5) track by $index">
           <h5>In:</h5>
           {{t.enter}}
           <h5>Out:</h5>
@@ -112,7 +114,7 @@
 <div class="row section-usage">
   <h2>Usage</h2>
   <p>
-    To load elementTransitions, add elementTransitions.min.js and elementTransitions.css to your page.  Here is an example of what should be in your head tag.
+    To load elementTransitions, add elementTransitions.min.js and elementTransitions.min.css to your page.  Here is an example of what should be in your head tag.
   </p>
     <script src="https://gist.github.com/dan-silver/5942389.js"></script>
   <p>

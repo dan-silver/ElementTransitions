@@ -1,11 +1,14 @@
-function demo($scope) {
-    $scope.number = 5
+var demo = angular.module('demo', []);
+
+demo.controller('demo', function ($scope) {
     $scope.getNumber = function(num) {
         return new Array(num)
     }
+
     setInterval(function() {
         PageTransitions.animate($(".section-transitions .et-wrapper")[Math.floor((Math.random()*66))])
-    },70)
+    }, 70)
+
   $scope.transitions = [
     {leave:"moveToLeft", enter:"moveFromRight"},
     {leave:"moveToRight", enter:"moveFromLeft"},
@@ -73,8 +76,11 @@ function demo($scope) {
     {leave:"rotateCarouselBottomOut ontop", enter:"rotateCarouselBottomIn"},
     {leave:"rotateSidesOut", enter:"rotateSidesIn delay200"},
     {leave:"rotateSlideOut", enter:"rotateSlideIn"}
-  ].reverse()
-}
+  ].reverse();
+
+})
+
+
 $(function() {
   $('.nav a, .brand, a[data-target]').click(function(){
     $('html, body').animate({

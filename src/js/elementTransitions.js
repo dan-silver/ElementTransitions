@@ -10,7 +10,7 @@ var PageTransitions = (function() {
     'OAnimation': 'oAnimationEnd',
     'msAnimation': 'MSAnimationEnd',
     'animation': 'animationend'
-  }
+  };
 
   function getTransitionPrefix() {
     var b = document.body || document.documentElement;
@@ -45,7 +45,7 @@ var PageTransitions = (function() {
     each(".et-rotate", function(e) {
       e.addEventListener('click', function() {
         animate(this);
-      })
+      });
     });
   }
 
@@ -56,15 +56,14 @@ var PageTransitions = (function() {
   function animate(block, callback) {
     var outClass = formatClass(block.getAttribute('et-out')),
         inClass  = formatClass(block.getAttribute('et-in')),
-        step     = block.getAttribute('et-step')
+        step     = block.getAttribute('et-step');
 
     if (typeof(step) != "number") {
       step = 1;
     }
 
-    if (block.classList.contains('et-rotate') && !block.classList.contains('et-wrapper')) {
-      block = block.parentNode;
-      if (!block.classList.contains('et-wrapper')) {
+    if (block.classList.contains('et-rotate')) {
+      while (!block.classList.contains('et-wrapper')) {
         block = block.parentNode;
       }
     }
