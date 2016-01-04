@@ -62,9 +62,8 @@ var PageTransitions = (function() {
       step = 1;
     }
 
-    if (block.classList.contains('et-rotate') && !block.classList.contains('et-wrapper')) {
-      block = block.parentNode;
-      if (!block.classList.contains('et-wrapper')) {
+    if (block.classList.contains('et-rotate')) {
+      while (!block.classList.contains('et-wrapper')) {
         block = block.parentNode;
       }
     }
